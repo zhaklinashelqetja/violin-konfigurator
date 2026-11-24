@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/500-italic.css';
+
+@theme {
+	--font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+
+	--color-ink-950: #0a0807;
+	--color-ink-900: #120f0d;
+	--color-ink-800: #1a1511;
+	--color-ink-700: #251e18;
+	--color-ink-600: #352b23;
+
+	--color-gold-300: #f0cf94;
+	--color-gold-400: #e3b46a;
+	--color-gold-500: #d19a4a;
+	--color-gold-600: #b07b32;
+
+	--color-cream-100: #f5ecdc;
+	--color-cream-200: #e6d9c2;
+	--color-cream-300: #cdbfa8;
+	--color-cream-400: #a89a84;
+	--color-cream-500: #857867;
+
+	--animate-float: float 6s ease-in-out infinite;
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0) rotate(-2deg);
+		}
+		50% {
+			transform: translateY(-8px) rotate(2deg);
+		}
+	}
+}
+
+@layer base {
+	html {
+		color-scheme: dark;
+		-webkit-tap-highlight-color: transparent;
+	}
+	::selection {
+		background: color-mix(in oklab, var(--color-gold-500) 45%, transparent);
+	}
+	:focus-visible {
+		outline: 2px solid var(--color-gold-400);
+		outline-offset: 3px;
+		border-radius: 0.5rem;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto !important;
+		}
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
+}
+
+@layer components {
+	.panel-scroll {
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-ink-600) transparent;
+	}
+	.glass {
+		background: color-mix(in oklab, var(--color-ink-900) 72%, transparent);
+		backdrop-filter: blur(14px) saturate(1.2);
+		border: 1px solid color-mix(in oklab, var(--color-cream-100) 10%, transparent);
+	}
+	.stage-bg {
+		background:
+			radial-gradient(70% 60% at 50% 42%, #2c221b 0%, #17120f 55%, #0b0908 100%);
+	}
+	.btn-ghost {
+		@apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-cream-200 transition hover:border-gold-500/50 hover:bg-white/[0.08] hover:text-cream-100 active:scale-[0.98];
+	}
+	.btn-gold {
+		@apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-gold-400 to-gold-600 px-6 py-3 text-sm font-semibold tracking-wide text-ink-950 shadow-[0_8px_30px_-8px_rgba(209,154,74,0.6)] transition hover:brightness-110 active:scale-[0.98];
+	}
+}
+
+/* Range-Slider */
+input[type='range'].slider {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 6px;
+	border-radius: 999px;
+	background: linear-gradient(
+		to right,
+		var(--color-gold-500) 0%,
+		var(--color-gold-500) var(--fill, 0%),
+		var(--color-ink-600) var(--fill, 0%),
+		var(--color-ink-600) 100%
+	);
+	outline-offset: 6px;
+}
+input[type='range'].slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 999px;
+	background: var(--color-cream-100);
+	border: 3px solid var(--color-gold-500);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+	cursor: grab;
+}
+input[type='range'].slider::-moz-range-thumb {
+	width: 16px;
+	height: 16px;
+	border-radius: 999px;
+	background: var(--color-cream-100);
+	border: 3px solid var(--color-gold-500);
+	cursor: grab;
+}
