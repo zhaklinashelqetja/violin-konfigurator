@@ -319,7 +319,7 @@
 		</dl>
 		<div class="flex items-end justify-between">
 			<div>
-				<p class="text-[0.65rem] uppercase tracking-[0.18em] text-cream-500">Beispielpreis (Demo)</p>
+				<p class="text-[0.65rem] uppercase tracking-[0.18em] text-cream-500">Preis </p>
 				<p class="font-display text-3xl leading-none text-gold-300 tabular-nums">{euro(price)}</p>
 			</div>
 			<button class="btn-gold" onclick={() => { ui.panelTab = 'save'; notify('Tipp: Konfiguration unter „Speichern“ sichern'); }}>

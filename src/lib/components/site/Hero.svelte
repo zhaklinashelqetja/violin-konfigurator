@@ -44,13 +44,6 @@
 			<a href="#renderings" class="btn-ghost !px-6 !py-3">Renderings ansehen</a>
 		</div>
 
-		<dl class="mt-16 grid max-w-2xl grid-cols-3 gap-6 border-t border-white/10 pt-6 sm:gap-10">
-			{#each facts as [value, label] (value)}
-				<div>
-					<dt class="font-display text-3xl text-gold-300 sm:text-4xl">{value}</dt>
-					<dd class="mt-1 text-xs leading-snug text-cream-400 sm:text-sm">{label}</dd>
-				</div>
-			{/each}
-		</dl>
+
 	</div>
 </section>
